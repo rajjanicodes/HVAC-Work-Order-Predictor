@@ -1,4 +1,4 @@
-# MonAir - HVAC Work-Order Prediction API
+# HVAC Work-Order Prediction API
 
 Predicts whether an HVAC unit needs a service work order (`WO`) or not (`NO_WORK_ORDER`) from IoT temperature time-series. Logistic regression, 1,200 training samples, served over FastAPI.
 
@@ -10,7 +10,6 @@ Predicts whether an HVAC unit needs a service work order (`WO`) or not (`NO_WORK
 ├── artifacts/
 │   ├── logistic.joblib        # Trained logistic regression (production model)
 │   ├── scaler.joblib          # StandardScaler fitted during training
-│   ├── feature_names.json     # Ordered list of 23 feature names
 │   └── visualizations/        # EDA plots saved during notebook run
 ├── data/
 │   ├── training_data.pkl      # Raw training dataset (1,200 records)
@@ -102,13 +101,15 @@ The batch response wraps results in a `results` list.
 
 ---
 
-## Try It
+## Trial Run
 
-Start the server first (`uvicorn src.app:app --reload`), then run the commands below.
+* Start the server first using 
+```bash
+uvicorn src.app:app --reload
+```
+then run the commands below.
 
 ---
-
-## Trial Run
 
 ### Single Prediction
 
@@ -118,10 +119,19 @@ curl -X POST http://localhost:8000/predict \
   -d @data/demo_single.json
 ```
 
-Output:
 
-```json
+**Output**:
 
+```
+{
+  "hvac_id": "HVAC-UNIT-001",
+  "request_id": "3b204e38-c69d-4563-9eb4-9830a417d958",
+  "label": "NO_WORK_ORDER",
+  "confidence": 0.9997863442815071,
+  "risk_level": "LOW",
+  "predicted_at": "2026-04-16T01:52:58.842791Z",
+  "model_version": "1.0.0"
+}
 ```
 
 ---
@@ -134,10 +144,50 @@ curl -X POST http://localhost:8000/predict_batch \
   -d @data/demo_batch.json
 ```
 
-Output:
 
-```json
 
+**Output**:
+```
+{
+  "results": [
+    {
+      "hvac_id": "HVAC-UNIT-001",
+      "request_id": "41749316-2c93-4f4e-b800-d9e462a883b5",
+      "label": "NO_WORK_ORDER",
+      "confidence": 0.9997863442815071,
+      "risk_level": "LOW",
+      "predicted_at": "2026-04-16T01:51:17.152100Z",
+      "model_version": "1.0.0"
+    },
+    {
+      "hvac_id": "HVAC-UNIT-002",
+      "request_id": "76b4383d-4986-4352-b1d9-ddb28cdf6afc",
+      "label": "NO_WORK_ORDER",
+      "confidence": 0.9965953177843264,
+      "risk_level": "LOW",
+      "predicted_at": "2026-04-16T01:51:17.152100Z",
+      "model_version": "1.0.0"
+    },
+    {
+      "hvac_id": "HVAC-UNIT-003",
+      "request_id": "d470fea8-5ad2-4de3-8f52-b67e45d7e6c8",
+      "label": "WO",
+      "confidence": 0.630986607156658,
+      "risk_level": "MEDIUM",
+      "predicted_at": "2026-04-16T01:51:17.152100Z",
+      "model_version": "1.0.0"
+    },
+    {
+      "hvac_id": "HVAC-UNIT-004",
+      "request_id": "b8c5b52c-fc89-463d-b407-2318faba0150",
+      "label": "WO",
+      "confidence": 0.8645972159094679,
+      "risk_level": "HIGH",
+      "predicted_at": "2026-04-16T01:51:17.152100Z",
+      "model_version": "1.0.0"
+    }
+  ]
+}
 ```
 
 ---
