@@ -1,0 +1,101 @@
+{
+  "hvac_id": "HVAC-UNIT-001",
+  "timeseries_data": [
+    {
+      "timestamp": 1713225600.0,
+      "temperature": 49.78
+    },
+    {
+      "timestamp": 1713226200.0,
+      "temperature": 50.7
+    },
+    {
+      "timestamp": 1713226800.0,
+      "temperature": 51.12
+    },
+    {
+      "timestamp": 1713227400.0,
+      "temperature": 51.22
+    },
+    {
+      "timestamp": 1713228000.0,
+      "temperature": 51.68
+    },
+    {
+      "timestamp": 1713228600.0,
+      "temperature": 51.87
+    },
+    {
+      "timestamp": 1713229200.0,
+      "temperature": 52.09
+    },
+    {
+      "timestamp": 1713229800.0,
+      "temperature": 52.14
+    },
+    {
+      "timestamp": 1713230400.0,
+      "temperature": 51.57
+    },
+    {
+      "timestamp": 1713231000.0,
+      "temperature": 51.27
+    },
+    {
+      "timestamp": 1713231600.0,
+      "temperature": 51.4
+    },
+    {
+      "timestamp": 1713232200.0,
+      "temperature": 50.72
+    },
+    {
+      "timestamp": 1713232800.0,
+      "temperature": 50.44
+    },
+    {
+      "timestamp": 1713233400.0,
+      "temperature": 49.48
+    },
+    {
+      "timestamp": 1713234000.0,
+      "temperature": 49.27
+    },
+    {
+      "timestamp": 1713234600.0,
+      "temperature": 48.99
+    },
+    {
+      "timestamp": 1713235200.0,
+      "temperature": 48.32
+    },
+    {
+      "timestamp": 1713235800.0,
+      "temperature": 48.48
+    },
+    {
+      "timestamp": 1713236400.0,
+      "temperature": 48.29
+    },
+    {
+      "timestamp": 1713237000.0,
+      "temperature": 47.72
+    },
+    {
+      "timestamp": 1713237600.0,
+      "temperature": 47.8
+    },
+    {
+      "timestamp": 1713238200.0,
+      "temperature": 48.31
+    },
+    {
+      "timestamp": 1713238800.0,
+      "temperature": 48.85
+    },
+    {
+      "timestamp": 1713239400.0,
+      "temperature": 48.91
+    }
+  ]
+}
